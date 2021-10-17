@@ -1,0 +1,63 @@
+body{
+  font-family: Microsoft JhengHei;
+  padding-right: 0 !important;
+}
+.range-wrap {
+  position: relative;
+  margin: 0 auto 3rem;
+}
+.range {
+  width: 100%;
+}
+.bubble {
+  background: #50B4FF;
+  color: white;
+  padding: 4px 12px;
+  position: absolute;
+  border-radius: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.bubble::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: #50B4FF;
+  top: -1px;
+  left: 50%;
+}
+.align_center{
+  text-align: center;
+}
+.tophighter{
+	background: #E6E4E3;
+    width: 100%;
+    padding-top: 150px;
+    text-align: center;
+}
+.padding-btm100{
+	padding-bottom:100px; 
+}
+.img_carousel{
+  	height: 100%;
+  	width: 100%; 
+  	object-fit: cover;
+}.image_contain{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: contain;
+}.height{
+	height: calc(100vh - 4rem);
+}.size{
+	height:40rem;
+	width: 100%;
+}.size_50{
+  height:50rem;
+  width: 100%;
+}
+.button_style {
+  height: 15vh;
+  border-radius: 30px;
+}

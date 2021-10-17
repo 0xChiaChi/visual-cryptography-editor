@@ -1,0 +1,67 @@
+td {
+  cursor:crosshair;
+  border: silver 1px dotted;
+}
+
+.pixel-canvas {
+  background-color : white;
+}
+
+/* 'border-collapse' CSS property specifies whether a table's cells have shared or separate borders; 'collapse' value causes cells to have shared borders */
+table {
+  border-collapse: collapse;
+}
+
+tr {
+  height: 20px;
+}
+
+td {
+  min-width: 20px;
+  box-sizing: border-box;
+}
+
+.color-picker {
+	border: 1px solid #dcdcdc;
+  -webkit-appearance: none;
+  padding: 0;
+  border: none;
+  border-radius: 10px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.color-picker::-webkit-color-swatch {
+  border: none;
+  border-radius: 10px;
+  padding: 0;
+}
+.color-picker::-webkit-color-swatch-wrapper {
+  border: none;
+  border-radius: 10px;
+  padding: 0;
+}
+
+/* Styles content to left of grid */
+.inputs {
+  text-align: left;
+  margin-left: 8em;
+  margin-top: 5.35em;
+  border-radius: 7px;
+  border: 1px solid #dcdcdc;
+  padding-left: 2em;
+  padding-top: 0.5em;
+  padding-bottom: 1.5em;
+  width: 200px;
+  background-color : white;
+}
+
+/* Part of two-column layout implementation. :after' is a pseudo element, affecting display of generated content */
+.row:after {
+  /* You can't style generated content without defining what that content should be. If content not needed, just add extra 'invisible element' to style, and style that. Without this, default value of content: none is assumed, meaning there is nothing for style to be applied to */
+  content: "";
+  display: table;
+  /* Cleared elements are pushed below the corresponding floated elements; 'clear: both' pushes element below all floated elements */
+  clear: both;
+}

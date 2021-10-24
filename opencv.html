@@ -26,7 +26,7 @@
       test.src= URL.createObjectURL(e.target.files[0]);
     },false);
     test.onload=function() {
-      let mat=cv.imread(test);
+      var mat=cv.imread(test);
       console.log(mat);
       cv.imshow('eee',mat);
       mat.delete();

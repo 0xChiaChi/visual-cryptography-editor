@@ -1,9 +1,74 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>測試</title>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" type="text/css" href="css/test.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/fontawesome.js"></script>
+	<style type="text/css">
+		.tab-content {
+	    border-left: 1px solid #ddd;
+	    border-right: 1px solid #ddd;
+	    border-bottom: 1px solid #ddd;
+	    padding: 10px;
+		}
+	.image_whole{
+	  max-width: 100%;
+	  max-height: 100%;
+	}
+
+	</style>
 </head>
 <body>
-
+	<div class="container">
+			 <div id="wrapper">
+		        <!-- Sidebar -->
+		        <div id="sidebar-wrapper">
+		            <ul class="sidebar-nav" style="margin-left:0;">
+		                <li class="sidebar-brand">
+		                	<a href="#menu-toggle"  id="menu-toggle" style="margin-top:20px;float:right;" > <i class="fas fa-pencil-ruler " style="font-size:20px;" aria-hidden="true" aria-hidden="true"></i> </a>
+		                </li>
+		                <li>
+		                    <a href="#"><i class="fas fa-pen" aria-hidden="true"></i> <span style="margin-left:10px;">黑筆</span>  </a>
+		                </li>
+		                <li>
+		                    <a href="#"> <i class="fas fa-eraser" aria-hidden="true"></i><span style="margin-left:10px;"> 橡皮擦</span> </a>
+		                </li>
+		                <li>
+		                    <a href="#"> <i class="fa fa-font" aria-hidden="true"> </i> <span style="margin-left:10px;"> Section</span> </a>
+		                </li>
+		                <li>
+		                    <a href="#"><i class="fa fa-info-circle " aria-hidden="true"> </i> <span style="margin-left:10px;">Section </span> </a>
+		                </li>
+		                <li>
+		                    <a href="#"> <i class="fa fa-comment-o" aria-hidden="true"> </i> <span style="margin-left:10px;"> Section</span> </a>
+		                </li>
+		            </ul>
+		        </div>
+		    </div>
+		    <nav class="pt-5"> 
+			  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+			    <a class="nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Home</a>
+			    <a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
+			    <a class="nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a>
+			  </div>
+			</nav>
+			<div class="tab-content" id="nav-tabContent">
+			  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">123</div>
+			  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">...</div>
+			  <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
+			</div>
+	</div>
 </body>
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        //取消這個事件
+        $("#wrapper").toggleClass("toggled");
+        //刪除和添加#wrapper的class(toggled)
+    });
+    </script>
 </html>

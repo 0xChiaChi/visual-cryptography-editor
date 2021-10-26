@@ -5,19 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Unit test</title>
+    <link rel="icon" href="img/LOGO.jpg" />
   </head>
   <body>
     <p id="status">OpenCV.js is loading...</p>
+
     <div class="input-layer">
       <div class="caption">
         [source] <input type="file" id="fileInput" name="file" />
       </div>
       <img id="imageSrc" alt="No Image" />
     </div>
+
     <div class="output-layer">
-      <div class="caption">canvasOutput</div>
-      <canvas id="canvasOutput"></canvas>
+      <div class="caption">Canvas output</div>
+      <canvas id="Share1Layer"></canvas>
+      <canvas id="Share2Layer"></canvas>
     </div>
+
     <script type="text/javascript">
       function onOpenCvReady() {
         document.getElementById("status").innerHTML = "OpenCV.js is ready.";

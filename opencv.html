@@ -4,36 +4,31 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <script src="js/jquery-3.4.1.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-    <title>Document</title>
+    <title>Unit test</title>
   </head>
   <body>
-    <div>
-      <img id="src-image" alt="NONO">
+    <p id="status">OpenCV.js is loading...</p>
+    <div class="input-layer">
+      <div class="caption">
+        [source] <input type="file" id="fileInput" name="file" />
+      </div>
+      <img id="imageSrc" alt="No Image" />
     </div>
-    <div>
-      <input type="file" id="inputfile">
+    <div class="output-layer">
+      <div class="caption">canvasOutput</div>
+      <canvas id="canvasOutput"></canvas>
     </div>
-    <canvas id="eee"></canvas>
+    <script type="text/javascript">
+      function onOpenCvReady() {
+        document.getElementById("status").innerHTML = "OpenCV.js is ready.";
+      }
+    </script>
+    <script
+      async
+      src="js/opencv.js"
+      onload="onOpenCvReady();"
+      type="text/javascript"
+    ></script>
+    <script src="js/vc-grid.js"></script>
   </body>
-  <script type="text/javascript">
-    var cv = window.cv;
-    var test=document.getElementById('src-image');
-    var test_input=document.getElementById('inputfile');
-    test_input.addEventListener("change",(e)=>{
-      test.src= URL.createObjectURL(e.target.files[0]);
-    },false);
-    test.onload=function() {
-      var mat=cv.imread(test);
-      console.log(mat);
-      cv.imshow('eee',mat);
-      mat.delete();
-    }
-    window.onOpenCvReady = function(){
-      console.log("OK");
-    }
-  </script>
-  <script src="js/opencv.js" async onload="onOpenCvReady();"></script>
 </html>

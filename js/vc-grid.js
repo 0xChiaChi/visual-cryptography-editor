@@ -56,8 +56,8 @@ function main() {
   var dst2 = new cv.Mat();
   var dst3 = new cv.Mat();
 
-  cv.bitwise_and(src, noise_not, dst1);
-  cv.bitwise_and(src_not, noise, dst2);
+  cv.bitwise_and(src, noise, dst1);
+  cv.bitwise_and(src_not, noise_not, dst2);
   cv.bitwise_or(dst1, dst2, dst3);
 
   var vertic = new cv.Mat();

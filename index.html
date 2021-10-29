@@ -1,109 +1,106 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<script src="js/jquery-3.4.1.min.js"></script>
-	<script src="js/html2canvas.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+	<title>測試</title>
 	<meta charset="UTF-8" />
+	<link rel="stylesheet" type="text/css" href="css/test.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="css/chiachi_css.css">
-	<link rel="stylesheet" type="text/css" href="css/pixel.css">
-	<link rel="shortcut icon" href="img/title.jpg" />
-	<title>C7.Pixel_製作你的像素圖</title>
+	<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/fontawesome.js"></script>
+	<style type="text/css">
+		.tab-content {
+			border-left: 1px solid #ddd;
+			border-right: 1px solid #ddd;
+			border-bottom: 1px solid #ddd;
+			padding: 10px;
+		}
+
+		.image_whole {
+			max-width: 100%;
+			max-height: 100%;
+		}
+	</style>
 </head>
+
 <body>
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-	  <a class="navbar-brand" href="#">
-	    <img src="img/LOGO.jpg" class="button_style">
-	  </a>
-	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_drop_down" aria-controls="navbar_drop_down" aria-expanded="false" aria-label="Toggle navigation">
-	    <span class="navbar-toggler-icon"></span>
-	  </button>
-	  <div class="collapse navbar-collapse" id="navbar_drop_down">
-	    <span class="navbar-text">
-	      欸我都幫你做網站了，別懶惰了吧~
-	    </span>
-	  </div>
-	</nav>
-	<div class="container mt-5">
-		<div class="row">
-			<div class="col-3 mt-5">
-				<div class="input-group mb-2">
-			        <div class="input-group-prepend">
-			          <div class="input-group-text">畫筆顏色:</div>
-			        </div>
-			        <div style="margin: auto;">
-			        	<input type="color" class="color_picker"value="#000000" >
-			        </div>		
-			     </div>
-				<p>
-			     <div class="form-group range-wrap">
-				    <label for="Range">方格圖大小</label>
-				    <input type="range" class="form-control-range range" id="Range" min="1" max="50"value="25">
-				    <output class="bubble"></output>
-				  </div>
-				</p>
-				<p>
-					<input type="button" class="btn btn-primary form-control"onclick="gtvalue()" value="方格圖生成">
-				</p>
-				<p>
-					<input type="button" class="btn btn-primary form-control quick_fill"value="清空畫布">
-				</p>
-				<p>
-					<div class="form-check">
-					  <input class="form-check-input" type="checkbox" checked="checked" id="check">
-					  <label class="form-check-label" for="defaultCheck1">
-					    是否需要線格
-					  </label>
-					</div>
-				</p>
-				<p>
-					<input type="button" class="btn btn-primary form-control" onclick="block_capture()"value="存取圖片">
-				</p>
-			</div>
-			<div class="col-9">
-				<table class="pixel_canvas"></table>
+	<div class="container">
+		<div id="wrapper">
+			<!-- Sidebar -->
+			<div id="sidebar-wrapper">
+				<ul class="sidebar-nav" style="margin-left:0;">
+					<li class="sidebar-brand">
+						<a href="#menu-toggle" id="menu-toggle" style="margin-top:20px;float:right;"> <i
+								class="fas fa-pencil-ruler " style="font-size:20px;" aria-hidden="true"
+								aria-hidden="true"></i> </a>
+					</li>
+					<li>
+						<a href="#"><i class="fas fa-pen" aria-hidden="true"></i> <span
+								style="margin-left:10px;">黑筆</span> </a>
+					</li>
+					<li>
+						<a href="#"> <i class="fas fa-eraser" aria-hidden="true"></i><span style="margin-left:10px;">
+								橡皮擦</span> </a>
+					</li>
+					<li>
+						<a href="unitTest.html"><i class="fa fa-info-circle " aria-hidden="true"> </i> <span
+								style="margin-left:10px;">單元測試 </span></a>
+					</li>
+					<li>
+						<a href="#"> <i class="fa fa-comment-o" aria-hidden="true"> </i> <span
+								style="margin-left:10px;"> Section</span> </a>
+					</li>
+				</ul>
 			</div>
 		</div>
+		<label for="fileInput">
+			<span class="fa fa-upload">
+				<input type="file" id="fileInput">
+			</span>
+		</label>
+		<nav class="pt-5">
+			<div class="nav nav-tabs" id="nav-tab" role="tablist">
+				<a class="nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
+					aria-controls="nav-home" aria-selected="true">原圖</a>
+				<a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
+					aria-controls="nav-profile" aria-selected="false">雜訊1</a>
+				<a class="nav-link" id="nav-contact1-tab" data-toggle="tab" href="#nav-contact1" role="tab"
+					aria-controls="nav-contact1" aria-selected="false">雜訊2</a>
+				<a class="nav-link" id="nav-contact2-tab" data-toggle="tab" href="#nav-contact2" role="tab"
+					aria-controls="nav-contact2" aria-selected="false">合併</a>
+				<!-- <a class="nav-link" id="nav-contact3-tab" data-toggle="tab" href="#nav-contact3" role="tab"
+					aria-controls="nav-contact3" aria-selected="false">待開發:)</a> -->
+			</div>
+		</nav>
+		<div class="tab-content" id="nav-tabContent">
+			<!--高寬要弄class-->
+			<div class="tab-pane fade show active" id="nav-home" role="tabpanel" style="height: 75vh;width: 100%;"
+				aria-labelledby="nav-home-tab"><img id="imageSrc"></canvas>
+			</div>
+			<div class="tab-pane fade" id="nav-profile" role="tabpanel" style="height: 75vh;width: 100%;"
+				aria-labelledby="nav-profile-tab"><canvas id="Share1Layer"></canvas></div>
+			<div class="tab-pane fade" id="nav-contact1" role="tabpanel" style="height: 75vh;width: 100%;"
+				aria-labelledby="nav-contact1-tab"><canvas id="Share2Layer"></canvas></div>
+			<div class="tab-pane fade" id="nav-contact2" role="tabpanel" style="height: 75vh;width: 100%;"
+				aria-labelledby="nav-contact2-tab"><canvas id="Share3Layer"></canvas></div>
+			<!-- <div class="tab-pane fade" id="nav-contact3" role="tabpanel" style="height: 75vh;width: 100%;"
+				aria-labelledby="nav-contact3-tab"><canvas id="Share4ayer"></canvas></div> -->
+		</div>
+	</div>
 </body>
-<script src="js/pixel.js"></script>
-<script type="text/javascript">
-	const aRanges = document.querySelectorAll(".range-wrap");
-	aRanges.forEach(wrap => {
-	  const range = wrap.querySelector(".range");
-	  const bubble = wrap.querySelector(".bubble");
-	  //監聽input
-	  range.addEventListener("input", () => {
-	  //碰到之後才執行
-	    setBubble(range, bubble);
-	  });
-	  //再碰之前先觸發
-	  setBubble(range, bubble);
+<script>
+	$("#menu-toggle").click(function (e) {
+		e.preventDefault();
+		//取消這個事件
+		$("#wrapper").toggleClass("toggled");
+		//刪除和添加#wrapper的class(toggled)
 	});
-	function setBubble(range, bubble) {
-	  const val = range.value;
-	  const min = range.min ? range.min : 1;
-	  const max = range.max ? range.max : 50;
-	  const newVal = Number(((val - min) * 100) / (max - min));
-	  bubble.innerHTML = val;
-	  bubble.style.left = `calc(${newVal}% + (${8 - newVal * 0.15}px))`;
+	function onOpenCvReady() {
+		console.log("OpenCV.js is ready.");
 	}
-	mkgrid(25,25);
-	function gtvalue(){
-	let num=$('#Range').val();
-	mkgrid(num,num);
-	}
-	var td_ = document.getElementsByTagName("td");
-	 $("#check").click(function () {
-	        if ($(this).prop("checked")) {
-			    for (let j = 0; j < td_.length; j++) {
-			    	td_[j].style.border = "1px dotted silver";
-				}
-	        } else {          
-			    for (let z = 0; z < td_.length; z++) {
-			    	td_[z].style.border = "0px dotted silver";
-				}
-			}
-	    });
 </script>
+<script async src="js/opencv.js" onload="onOpenCvReady();" type="text/javascript"></script>
+<script src="js/vc-grid.js"></script>
+
 </html>

@@ -10,21 +10,43 @@
 </head>
 
 <body>
+  <button onclick="main()">run</button>
   <p id="status">OpenCV.js is loading...</p>
-
-  <div class="input-layer">
-    <div class="caption">
-      [source] <input type="file" id="fileInput" name="file" />
-    </div>
-    <img id="imageSrc" alt="No Image" />
-  </div>
-
-  <div class="output-layer">
-    <div class="caption">Canvas output</div>
-    <canvas id="Share1Layer"></canvas>
-    <canvas id="Share2Layer"></canvas>
-  </div>
-
+  [source] <input type="file" id="fileInput" name="file" />
+  <table>
+    <tr>
+      <td>
+        <h2>Source image</h2>
+        <img id="imageSrc" alt="No Image" style="width: 300px;" src="img/gura.png" />
+      </td>
+      <td>
+        <h2>Black-White image</h2>
+        <canvas id="BlackWhiteLayer"></canvas>
+      </td>
+      <td>
+        <h2>L1 (Source && Noise)</h2>
+        <canvas id="dst1Layer"></canvas>
+      </td>
+      <td>
+        <h2>L2 (!Source && !Noise)</h2>
+        <canvas id="dst2Layer"></canvas>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <h2>Share1 (Noise)</h2>
+        <canvas id="Share1Layer"></canvas>
+      </td>
+      <td>
+        <h2>Share2 (L1 && L2)</h2>
+        <canvas id="Share2Layer"></canvas>
+      </td>
+      <td>
+        <h2>verific</h2>
+        <canvas id="verificLayer"></canvas>
+      </td>
+    </tr>
+  </table>
   <script type="text/javascript">
     function onOpenCvReady() {
       document.getElementById("status").innerHTML = "OpenCV.js is ready.";

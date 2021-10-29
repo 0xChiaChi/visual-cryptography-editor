@@ -60,12 +60,16 @@ function main() {
   cv.bitwise_and(src_not, noise_not, dst2);
   cv.bitwise_or(dst1, dst2, dst3);
 
-  var vertic = new cv.Mat();
-  cv.bitwise_or(dst3, noise, vertic);
-  cv.bitwise_not(vertic, vertic);
+  var verific = new cv.Mat();
+  cv.bitwise_or(dst3, noise, verific);
+  cv.bitwise_not(verific, verific);
+
+  cv.imshow("BlackWhiteLayer", src);
+  cv.imshow("dst1Layer", dst1);
+  cv.imshow("dst2Layer", dst2);
   cv.imshow("Share1Layer", dst3);
   cv.imshow("Share2Layer", noise);
-  cv.imshow("Share3Layer", vertic);
+  cv.imshow("verificLayer", verific);
 
   src.delete();
   noise.delete();

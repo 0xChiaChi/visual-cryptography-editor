@@ -9,6 +9,8 @@
 	<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/fontawesome.js"></script>
+	<script type="text/javascript" src="js/interact.min.js"></script>
+	<script type="text/javascript" src="js/canvas_pixel.js"></script>
 	<style type="text/css">
 		.tab-content {
 			border-left: 1px solid #ddd;
@@ -20,6 +22,12 @@
 		.image_whole {
 			max-width: 100%;
 			max-height: 100%;
+		}
+		#imageSrc {
+		  border: solid 2px gray;
+
+		  -ms-touch-action: none;
+		      touch-action: none;
 		}
 	</style>
 </head>
@@ -77,7 +85,7 @@
 		<div class="tab-content" id="nav-tabContent">
 			<!--高寬要弄class-->
 			<div class="tab-pane fade show active" id="nav-home" role="tabpanel" style="height: 75vh;width: 100%;"
-				aria-labelledby="nav-home-tab"><img id="imageSrc"></canvas>
+				aria-labelledby="nav-home-tab"><canvas id="imageSrc"></canvas>
 			</div>
 			<div class="tab-pane fade" id="nav-profile" role="tabpanel" style="height: 75vh;width: 100%;"
 				aria-labelledby="nav-profile-tab"><canvas id="Share1Layer"></canvas></div>

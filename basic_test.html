@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>basic_測試</title>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" type="text/css" href="css/test.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/fontawesome.js"></script>
+	<script type="text/javascript" src="js/interact.min.js"></script>
+	<script type="text/javascript" src="js/canvas_pixel.js"></script>
+	<style type="text/css">
+		.tab-content {
+			border-left: 1px solid #ddd;
+			border-right: 1px solid #ddd;
+			border-bottom: 1px solid #ddd;
+			padding: 10px;
+		}
+
+		.image_whole {
+			max-width: 100%;
+			max-height: 100%;
+		}
+		#imageSrc {
+		  border: solid 2px gray;
+
+		  -ms-touch-action: none;
+		      touch-action: none;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<div id="wrapper">
+			<!-- Sidebar -->
+			<div id="sidebar-wrapper">
+				<ul class="sidebar-nav">
+					<li class="sidebar-brand">
+						<a href="#menu-toggle" id="menu-toggle" style="margin-top:10px;float:right;">
+							<i class="fas fa-pencil-ruler " style="font-size:20px;margin-top:10px;float:right;" aria-hidden="true"></i>
+						</a>
+					</li>
+
+					<li>
+						<label for="fileInput">
+							<input type="file" class="sr-only" id="fileInput">
+							<span style="color: #ddd;margin-left:-20px;" class="fa fa-upload" > 檔案上傳</span>
+						</label>
+					</li>
+					<li>
+						<a href="#"><i class="fas fa-pen" aria-hidden="true"></i> <span>黑筆</span></a>
+					</li>
+					<li>
+						<a href="#"><i class="fas fa-eraser" aria-hidden="true"></i> <span>橡皮擦</span></a>
+					</li>
+					<li>
+						<a href="unitTest.html"><i class="fa fa-info-circle " aria-hidden="true"> </i> <span>單元測試</span></a>
+					</li>
+					<li>
+						<a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> <span> Section</span></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<nav class="pt-5">
+			<div class="nav nav-tabs" id="nav-tab" role="tablist">
+				<a class="nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
+					aria-controls="nav-home" aria-selected="true">原圖</a>
+				<a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
+					aria-controls="nav-profile" aria-selected="false">雜訊1</a>
+				<a class="nav-link" id="nav-contact1-tab" data-toggle="tab" href="#nav-contact1" role="tab"
+					aria-controls="nav-contact1" aria-selected="false">雜訊2</a>
+				<a class="nav-link" id="nav-contact2-tab" data-toggle="tab" href="#nav-contact2" role="tab"
+					aria-controls="nav-contact2" aria-selected="false">合併</a>
+				<!-- <a class="nav-link" id="nav-contact3-tab" data-toggle="tab" href="#nav-contact3" role="tab"
+					aria-controls="nav-contact3" aria-selected="false">待開發:)</a> -->
+			</div>
+		</nav>
+		<div class="tab-content" id="nav-tabContent">
+			<!--高寬要弄class-->
+			<div class="tab-pane fade show active" id="nav-home" role="tabpanel" style="height: 100%;width: 100%;"
+				aria-labelledby="nav-home-tab"><canvas id="imageSrc"></canvas>
+			</div>
+			<div class="tab-pane fade" id="nav-profile" role="tabpanel" style="height: 75vh;width: 100%;"
+				aria-labelledby="nav-profile-tab"><canvas id="Share1Layer"></canvas></div>
+			<div class="tab-pane fade" id="nav-contact1" role="tabpanel" style="height: 75vh;width: 100%;"
+				aria-labelledby="nav-contact1-tab"><canvas id="Share2Layer"></canvas></div>
+			<div class="tab-pane fade" id="nav-contact2" role="tabpanel" style="height: 75vh;width: 100%;"
+				aria-labelledby="nav-contact2-tab"><canvas id="verificLayer"></canvas></div>
+			<!-- <div class="tab-pane fade" id="nav-contact3" role="tabpanel" style="height: 75vh;width: 100%;"
+				aria-labelledby="nav-contact3-tab"><canvas id="Share4ayer"></canvas></div> -->
+		</div>
+	</div>
+</body>
+<script>
+	$("#menu-toggle").click(function (e) {
+		e.preventDefault();
+		//取消這個事件
+		$("#wrapper").toggleClass("toggled");
+		//刪除和添加#wrapper的class(toggled)
+	});
+	function onOpenCvReady() {
+		console.log("OpenCV.js is ready.");
+	}
+</script>
+<script async src="js/opencv.js" onload="onOpenCvReady();" type="text/javascript"></script>
+<script src="js/vc-grid.js"></script>
+
+</html>

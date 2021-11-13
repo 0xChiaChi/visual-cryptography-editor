@@ -23,11 +23,12 @@
 			max-width: 100%;
 			max-height: 100%;
 		}
-		#imageSrc {
-		  border: solid 2px gray;
 
-		  -ms-touch-action: none;
-		      touch-action: none;
+		#imageSrc {
+			border: solid 2px gray;
+
+			-ms-touch-action: none;
+			touch-action: none;
 		}
 	</style>
 </head>
@@ -40,15 +41,16 @@
 				<ul class="sidebar-nav">
 					<li class="sidebar-brand">
 						<a href="#menu-toggle" id="menu-toggle" style="margin-top:10px;float:right;">
-							<i class="fas fa-pencil-ruler " style="font-size:20px;margin-top:10px;float:right;" aria-hidden="true"></i>
+							<i class="fas fa-pencil-ruler " style="font-size:20px;margin-top:10px;float:right;"
+								aria-hidden="true"></i>
 						</a>
 					</li>
 					<li>
-						<label for="fileInput">
-							<input type="file" class="sr-only" id="fileInput">
-							<span style="color: #ddd;margin-left:-20px;" class="fa fa-upload" > 檔案上傳</span>
-						</label>
-					</li>
+						<input type="file" class="sr-only" id="upload">
+						<a href="#" id="upload_link">
+							<i class="fas fa-upload m-0" aria-hidden="true"></i> 
+							<span style="color:white"> 檔案上傳</span>
+						</a>
 					<li>
 						<a href="#"><i class="fas fa-pen" aria-hidden="true"></i> <span>黑筆</span></a>
 					</li>
@@ -56,10 +58,17 @@
 						<a href="#"><i class="fas fa-eraser" aria-hidden="true"></i> <span>橡皮擦</span></a>
 					</li>
 					<li>
-						<a href="unitTest.html"><i class="fa fa-info-circle " aria-hidden="true"> </i> <span>單元測試</span></a>
+						<a href="unitTest.html"><i class="fa fa-info-circle " aria-hidden="true"> </i>
+							<span>單元測試</span></a>
 					</li>
 					<li>
 						<a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> <span> Section</span></a>
+					</li>
+					<li class="sidebar-brand">
+						<a href="" id="close-menu" style="margin-top:10px;float:right;">
+							<i class="fas fa-pencil-ruler " style="font-size:20px;margin-top:10px;float:right;"
+								aria-hidden="true"></i>
+						</a>
 					</li>
 				</ul>
 			</div>
@@ -95,6 +104,23 @@
 	</div>
 </body>
 <script>
+	// 檔案上傳按鈕
+	$(function(){
+    $("#upload_link").on('click', function(e){
+        e.preventDefault();
+        $("#upload").trigger('click');
+    	});
+	});
+
+	// 新增下方 menu 關閉按鈕
+	$(function(){
+    $("#close-menu").on('click', function(e){
+        e.preventDefault();
+        $("#menu-toggle").trigger('click');
+    	});
+	});
+
+
 	$("#menu-toggle").click(function (e) {
 		e.preventDefault();
 		//取消這個事件
@@ -109,3 +135,5 @@
 <script src="js/vc-grid.js"></script>
 
 </html>
+
+

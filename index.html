@@ -18,14 +18,12 @@
 			border-bottom: 1px solid #ddd;
 			padding: 10px;
 		}
-
 		.image_whole {
 			max-width: 100%;
 			max-height: 100%;
 		}
 		#imageSrc {
 		  border: solid 2px gray;
-
 		  -ms-touch-action: none;
 		      touch-action: none;
 		}
@@ -33,8 +31,8 @@
 </head>
 
 <body>
-	<div class="container">
-		<div id="wrapper">
+	<div class="container"style="padding-left: 3rem;">
+		<div id="wrapper" >
 			<!-- Sidebar -->
 			<div id="sidebar-wrapper">
 				<ul class="sidebar-nav" style="margin-left:0;">
@@ -48,18 +46,16 @@
 								style="margin-left:10px;">黑筆</span> </a>
 					</li>
 					<li>
-						<a href="#"> <i class="fas fa-eraser" aria-hidden="true"></i><span style="margin-left:10px;">
+						<a href="#" onclick="ccc()"> <i class="fas fa-eraser" aria-hidden="true"></i><span style="margin-left:10px;">
 								橡皮擦</span> </a>
 					</li>
 					<li>
-						<label for="fileInput">
-							<input type="file" class="sr-only" id="fileInput">
-							<span style="color: #ddd;" class="fa fa-upload"></span>
-						</label>
+						<a href="#"><i class="fas fa-sync"></i><span
+								style="margin-left:10px;">清空畫布</span></a>
 					</li>
 					<li>
 						<a href="unitTest.html"><i class="fa fa-info-circle " aria-hidden="true"> </i> <span
-								style="margin-left:10px;">單元測試 </span></a>
+								style="margin-left:10px;">單元測試</span></a>
 					</li>
 					<li>
 						<a href="#"> <i class="fa fa-comment-o" aria-hidden="true"> </i> <span
@@ -84,14 +80,14 @@
 		</nav>
 		<div class="tab-content" id="nav-tabContent">
 			<!--高寬要弄class-->
-			<div class="tab-pane fade show active" id="nav-home" role="tabpanel" style="height: 75vh;width: 100%;"
+			<div class="tab-pane fade show active" id="nav-home" role="tabpanel" style="height: 85vh;width: 100%;"
 				aria-labelledby="nav-home-tab"><canvas id="imageSrc"></canvas>
 			</div>
-			<div class="tab-pane fade" id="nav-profile" role="tabpanel" style="height: 75vh;width: 100%;"
+			<div class="tab-pane fade" id="nav-profile" role="tabpanel" style="height: 85vh;width: 100%;"
 				aria-labelledby="nav-profile-tab"><canvas id="Share1Layer"></canvas></div>
-			<div class="tab-pane fade" id="nav-contact1" role="tabpanel" style="height: 75vh;width: 100%;"
+			<div class="tab-pane fade" id="nav-contact1" role="tabpanel" style="height: 85vh;width: 100%;"
 				aria-labelledby="nav-contact1-tab"><canvas id="Share2Layer"></canvas></div>
-			<div class="tab-pane fade" id="nav-contact2" role="tabpanel" style="height: 75vh;width: 100%;"
+			<div class="tab-pane fade" id="nav-contact2" role="tabpanel" style="height: 85vh;width: 100%;"
 				aria-labelledby="nav-contact2-tab"><canvas id="verificLayer"></canvas></div>
 			<!-- <div class="tab-pane fade" id="nav-contact3" role="tabpanel" style="height: 75vh;width: 100%;"
 				aria-labelledby="nav-contact3-tab"><canvas id="Share4ayer"></canvas></div> -->
@@ -105,11 +101,11 @@
 		$("#wrapper").toggleClass("toggled");
 		//刪除和添加#wrapper的class(toggled)
 	});
-	function onOpenCvReady() {
-		console.log("OpenCV.js is ready.");
-	}
+	// function onOpenCvReady() {
+	// 	console.log("OpenCV.js is ready.");
+	// }
 </script>
-<script async src="js/opencv.js" onload="onOpenCvReady();" type="text/javascript"></script>
-<script src="js/vc-grid.js"></script>
+<!-- <script async src="js/opencv.js" onload="onOpenCvReady();" type="text/javascript"></script>
+<script src="js/vc-grid.js"></script> -->
 
 </html>

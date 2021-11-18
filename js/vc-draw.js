@@ -2,21 +2,16 @@
 
 var cv = window.cv;
 let imgElement = document.getElementById("imageSrc");
-let inputElement = document.getElementById("fileInput");
 
 // -------------------------------------------------------------------- //
-
-inputElement.addEventListener(
-  "change",
-  (e) => {
-    imgElement.src = URL.createObjectURL(e.target.files[0]);
-  },
-  false
-);
 
 imgElement.onload = function () {
   main();
 };
+
+$('#button2').on('click',function() {
+main();
+})
 
 // -------------------------------------------------------------------- //
 
@@ -64,13 +59,12 @@ function main() {
   cv.bitwise_or(dst3, noise, verific);
   cv.bitwise_not(verific, verific);
 
-  cv.imshow("BlackWhiteLayer", src);
-  cv.imshow("dst1Layer", dst1);
-  cv.imshow("dst2Layer", dst2);
+  // cv.imshow("BlackWhiteLayer", src);
+  // cv.imshow("dst1Layer", dst1);
+  // cv.imshow("dst2Layer", dst2);
   cv.imshow("Share1Layer", dst3);
   cv.imshow("Share2Layer", noise);
   cv.imshow("verificLayer", verific);
-
   src.delete();
   noise.delete();
   src_not.delete();

@@ -10,7 +10,6 @@
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/fontawesome.js"></script>
 	<script type="text/javascript" src="js/interact.min.js"></script>
-	<script type="text/javascript" src="js/canvas_pixel.js"></script>
 	<style type="text/css">
 		.tab-content {
 			border-left: 1px solid #ddd;
@@ -35,31 +34,45 @@
 		<div id="wrapper" >
 			<!-- Sidebar -->
 			<div id="sidebar-wrapper">
-				<ul class="sidebar-nav" style="margin-left:0;">
+				<ul class="sidebar-nav" id="tool_list" style="margin-left:0;">
 					<li class="sidebar-brand">
 						<a href="#menu-toggle" id="menu-toggle" style="margin-top:20px;float:right;"> <i
 								class="fas fa-pencil-ruler " style="font-size:20px;" aria-hidden="true"
 								aria-hidden="true"></i> </a>
 					</li>
 					<li>
-						<a href="#"><i class="fas fa-pen" aria-hidden="true"></i> <span
-								style="margin-left:10px;">黑筆</span> </a>
+						<label class="active">
+							<input  type="radio" name="tool" class="sr-only" value="#000000" id='aspectRatio1'> 
+							<i class="fas fa-pen" aria-hidden="true"></i>
+							<span style="margin-left:10px;">黑筆</span>
+						</label>
 					</li>
 					<li>
-						<a href="#" onclick="ccc()"> <i class="fas fa-eraser" aria-hidden="true"></i><span style="margin-left:10px;">
-								橡皮擦</span> </a>
+						<label>
+							<input name="tool" type="radio" class="sr-only" value="#ffffff" id='aspectRatio2'>
+							<i class="fas fa-eraser"aria-hidden="true"></i>
+							<span style="margin-left:10px;">橡皮擦</span>
+						</label>
 					</li>
 					<li>
-						<a href="#"><i class="fas fa-sync"></i><span
-								style="margin-left:10px;">清空畫布</span></a>
+						<label><input type="button" class="sr-only" id='button1'><i class="fas fa-sync"></i><span
+								style="margin-left:10px;">清空畫布</span></label>
 					</li>
 					<li>
-						<a href="unitTest.html"><i class="fa fa-info-circle " aria-hidden="true"> </i> <span
-								style="margin-left:10px;">單元測試</span></a>
+						<label><input type="button" class="sr-only" id='button2'><i class="fas fa-hand-holding-heart"></i><span
+								style="margin-left:10px;">圖片加密</span></label>
 					</li>
 					<li>
-						<a href="#"> <i class="fa fa-comment-o" aria-hidden="true"> </i> <span
-								style="margin-left:10px;"> Section</span> </a>
+						<label download="canvas_love.png"> <i class="fas fa-download"></i><span
+								style="margin-left:10px;">下載</span> 
+							</label>
+					</li>
+					<li>
+						<label>
+							<input type="button" class="sr-only" id='button4'>
+							<i class="fa fa-info-circle " aria-hidden="true"></i> 
+							<span style="margin-left:10px;">單元測試</span>
+						</label>
 					</li>
 				</ul>
 			</div>
@@ -101,11 +114,17 @@
 		$("#wrapper").toggleClass("toggled");
 		//刪除和添加#wrapper的class(toggled)
 	});
-	// function onOpenCvReady() {
-	// 	console.log("OpenCV.js is ready.");
-	// }
+	function onOpenCvReady() {
+		console.log("OpenCV.js is ready.");
+	}
+	var tooltip=document.getElementById('tool_list');
+	var clear=document.getElementById('button1');
+	$("#button4").on('click',function() {
+		location.href='unitTest.html';
+	});
 </script>
-<!-- <script async src="js/opencv.js" onload="onOpenCvReady();" type="text/javascript"></script>
-<script src="js/vc-grid.js"></script> -->
+<script type="text/javascript" src="js/canvas_pixel.js"></script>
+<script async src="js/opencv.js" onload="onOpenCvReady();" type="text/javascript"></script>
+<script src="js/vc-draw.js"></script>
 
 </html>

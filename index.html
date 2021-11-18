@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
 	<title>測試</title>
 	<meta charset="UTF-8" />
@@ -11,10 +10,16 @@
 	<script type="text/javascript" src="js/fontawesome.js"></script>
 	<script type="text/javascript" src="js/interact.min.js"></script>
 	<style type="text/css">
+		.nav-link.active  {
+			background-color: #336699 !important;
+		}
+		.nav-tabs{
+			border-bottom: 1px solid #E6E4EC;
+		}
 		.tab-content {
-			border-left: 1px solid #ddd;
-			border-right: 1px solid #ddd;
-			border-bottom: 1px solid #ddd;
+			border-left: 1px solid #E6E4EC;
+			border-right: 1px solid #E6E4EC;
+			border-bottom: 1px solid #E6E4EC;
 			padding: 10px;
 		}
 		.image_whole {
@@ -22,14 +27,19 @@
 			max-height: 100%;
 		}
 		#imageSrc {
-		  border: solid 2px gray;
+		  border: solid 2px #43363D;
 		  -ms-touch-action: none;
 		      touch-action: none;
+		}
+		.nav-link{
+			background-color: #003366;
 		}
 	</style>
 </head>
 
-<body>
+<body style="background-color: #669160">
+	<div id="loading">
+	</div>
 	<div class="container"style="padding-left: 3rem;">
 		<div id="wrapper" >
 			<!-- Sidebar -->
@@ -79,13 +89,13 @@
 		</div>
 		<nav class="pt-5">
 			<div class="nav nav-tabs" id="nav-tab" role="tablist">
-				<a class="nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
+				<a class="nav-link active"style="color: #FFFFFF" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
 					aria-controls="nav-home" aria-selected="true">原圖</a>
-				<a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
+				<a class="nav-link"style="color: #FFFFFF" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
 					aria-controls="nav-profile" aria-selected="false">雜訊1</a>
-				<a class="nav-link" id="nav-contact1-tab" data-toggle="tab" href="#nav-contact1" role="tab"
+				<a class="nav-link"style="color: #FFFFFF" id="nav-contact1-tab" data-toggle="tab" href="#nav-contact1" role="tab"
 					aria-controls="nav-contact1" aria-selected="false">雜訊2</a>
-				<a class="nav-link" id="nav-contact2-tab" data-toggle="tab" href="#nav-contact2" role="tab"
+				<a class="nav-link"style="color: #FFFFFF" id="nav-contact2-tab" data-toggle="tab" href="#nav-contact2" role="tab"
 					aria-controls="nav-contact2" aria-selected="false">合併</a>
 				<!-- <a class="nav-link" id="nav-contact3-tab" data-toggle="tab" href="#nav-contact3" role="tab"
 					aria-controls="nav-contact3" aria-selected="false">待開發:)</a> -->
@@ -116,6 +126,7 @@
 	});
 	function onOpenCvReady() {
 		console.log("OpenCV.js is ready.");
+		$('#loading').hide();
 	}
 	var tooltip=document.getElementById('tool_list');
 	var clear=document.getElementById('button1');

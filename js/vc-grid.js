@@ -38,6 +38,16 @@ function buildNoiseLayer(size) {
 
 function main() {
   let src = cv.imread(imgElement);
+  for (var i =0 ;i <src.rows; i++) {
+    for (var j = 0; j < src.cols; j++) {
+      if(src.ucharPtr(i, j)[3]==0){
+        for (var z = 0; z < 3; z++) {
+          src.ucharPtr(i, j)[z]=255;
+        }
+        src.ucharPtr(i, j)[3]=1;
+      }
+    }
+  }
   var noise = buildNoiseLayer(src.size());
   var src_not = new cv.Mat();
   var noise_not = new cv.Mat();
@@ -48,9 +58,6 @@ function main() {
 
   cv.bitwise_not(src, src_not);
   cv.bitwise_not(noise, noise_not);
-
-  // cv.imshow("Share1Layer", src);
-  // cv.imshow("Share1Layer", noise);
 
   var dst1 = new cv.Mat();
   var dst2 = new cv.Mat();
@@ -77,6 +84,7 @@ function main() {
   noise_not.delete();
   dst1.delete();
   dst2.delete();
+  dst3.delete();
 }
 
 // ---------------------------- Reference ---------------------------- //

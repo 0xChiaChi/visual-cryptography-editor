@@ -33,36 +33,29 @@ function buildNoiseLayer(size) {
 
 function main() {
   let src = cv.imread(imgElement);
+  for (var i =0 ;i <src.rows; i++) {
+  	for (var j = 0; j < src.cols; j++) {
+  		if(src.ucharPtr(i, j)[3]==0){
+  			for (var z = 0; z < 3; z++) {
+	  			src.ucharPtr(i, j)[z]=255;
+	  		}
+	  		src.ucharPtr(i, j)[3]=1;
+  		}
+  	}
+  }
   var noise = buildNoiseLayer(src.size());
   var src_not = new cv.Mat();
   var noise_not = new cv.Mat();
-
   cv.cvtColor(src, src, cv.COLOR_RGBA2GRAY);
   cv.cvtColor(noise, noise, cv.COLOR_RGBA2GRAY);
   cv.threshold(src, src, 0, 255, cv.THRESH_OTSU);
-
-  cv.bitwise_not(src, src_not);
-  cv.bitwise_not(noise, noise_not);
-
-  // cv.imshow("Share1Layer", src);
-  // cv.imshow("Share1Layer", noise);
-
   var dst1 = new cv.Mat();
-  var dst2 = new cv.Mat();
-  var dst3 = new cv.Mat();
-
-  cv.bitwise_and(src, noise, dst1);
-  cv.bitwise_and(src_not, noise_not, dst2);
-  cv.bitwise_or(dst1, dst2, dst3);
-
+  cv.bitwise_xor(src, noise, dst1);
+  cv.bitwise_not(dst1,dst1);
   var verific = new cv.Mat();
-  cv.bitwise_or(dst3, noise, verific);
+  cv.bitwise_or(dst1, noise, verific);
   cv.bitwise_not(verific, verific);
-
-  // cv.imshow("BlackWhiteLayer", src);
-  // cv.imshow("dst1Layer", dst1);
-  // cv.imshow("dst2Layer", dst2);
-  cv.imshow("Share1Layer", dst3);
+  cv.imshow("Share1Layer", dst1);
   cv.imshow("Share2Layer", noise);
   cv.imshow("verificLayer", verific);
   src.delete();
@@ -70,7 +63,6 @@ function main() {
   src_not.delete();
   noise_not.delete();
   dst1.delete();
-  dst2.delete();
 }
 
 // ---------------------------- Reference ---------------------------- //

@@ -65,23 +65,20 @@
     text-indent: 20px;
     line-height: 40px;
 }
-.sidebar-nav li label,
-.sidebar-nav li a {
+.sidebar-nav li label {
     display: block;
     text-decoration: none;
     color: #999999;
 }
-.sidebar-nav li label,
-.sidebar-nav li a ::hover {
+.sidebar-nav li label::hover {
     text-decoration: none;
     color: #fff;
     background: #312A25;
 }
 
 .sidebar-nav li label:active,
-.sidebar-nav li label:focus,
-.sidebar-nav li a:active,
-.sidebar-nav li a:focus {
+.sidebar-nav li label:focus{
+    color: #fff !important;
     text-decoration: none;
 }
 

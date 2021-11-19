@@ -11,6 +11,7 @@
 	<script type="text/javascript" src="js/interact.min.js"></script>
 	<style type="text/css">
 		.nav-link.active  {
+			color: #FFFFFF !important;
 			background-color: #336699 !important;
 		}
 		.nav-tabs{
@@ -32,6 +33,7 @@
 		      touch-action: none;
 		}
 		.nav-link{
+			color: #FFFFFF;
 			background-color: #003366;
 		}
 	</style>
@@ -46,41 +48,41 @@
 			<div id="sidebar-wrapper">
 				<ul class="sidebar-nav" id="tool_list" style="margin-left:0;">
 					<li class="sidebar-brand">
-						<a href="#menu-toggle" id="menu-toggle" style="margin-top:20px;float:right;"> <i
-								class="fas fa-pencil-ruler " style="font-size:20px;" aria-hidden="true"
-								aria-hidden="true"></i> </a>
+						<label id="menu-toggle" style="margin-top:20px;float:right;"> <i
+								class="fas fa-pencil-ruler fa-lg" style="font-size:20px;" aria-hidden="true"
+								aria-hidden="true"></i> </label>
 					</li>
 					<li>
 						<label class="active">
 							<input  type="radio" name="tool" class="sr-only" value="#000000" id='aspectRatio1'> 
-							<i class="fas fa-pen" aria-hidden="true"></i>
+							<i class="fas fa-pen fa-lg" aria-hidden="true"></i>
 							<span style="margin-left:10px;">黑筆</span>
 						</label>
 					</li>
 					<li>
 						<label>
 							<input name="tool" type="radio" class="sr-only" value="#ffffff" id='aspectRatio2'>
-							<i class="fas fa-eraser"aria-hidden="true"></i>
+							<i class="fas fa-eraser fa-lg"aria-hidden="true"></i>
 							<span style="margin-left:10px;">橡皮擦</span>
 						</label>
 					</li>
 					<li>
-						<label><input type="button" class="sr-only" id='button1'><i class="fas fa-sync"></i><span
+						<label><input type="button" class="sr-only" id='button1'><i class="fas fa-sync fa-lg"></i><span
 								style="margin-left:10px;">清空畫布</span></label>
 					</li>
 					<li>
-						<label><input type="button" class="sr-only" id='button2'><i class="fas fa-hand-holding-heart"></i><span
+						<label><input type="button" class="sr-only" id='button2'><i class="fas fa-hand-holding-heart fa-lg"></i><span
 								style="margin-left:10px;">圖片加密</span></label>
 					</li>
 					<li>
-						<label download="canvas_love.png"> <i class="fas fa-download"></i><span
+						<label download="canvas_love.png"> <i class="fas fa-download fa-lg"></i><span
 								style="margin-left:10px;">下載</span> 
 							</label>
 					</li>
 					<li>
 						<label>
 							<input type="button" class="sr-only" id='button4'>
-							<i class="fa fa-info-circle " aria-hidden="true"></i> 
+							<i class="fa fa-info-circle fa-lg" aria-hidden="true"></i> 
 							<span style="margin-left:10px;">單元測試</span>
 						</label>
 					</li>
@@ -89,19 +91,19 @@
 		</div>
 		<nav class="pt-5">
 			<div class="nav nav-tabs" id="nav-tab" role="tablist">
-				<a class="nav-link active"style="color: #FFFFFF" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
+				<a class="nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
 					aria-controls="nav-home" aria-selected="true">原圖</a>
-				<a class="nav-link"style="color: #FFFFFF" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
+				<a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
 					aria-controls="nav-profile" aria-selected="false">雜訊1</a>
-				<a class="nav-link"style="color: #FFFFFF" id="nav-contact1-tab" data-toggle="tab" href="#nav-contact1" role="tab"
+				<a class="nav-link" id="nav-contact1-tab" data-toggle="tab" href="#nav-contact1" role="tab"
 					aria-controls="nav-contact1" aria-selected="false">雜訊2</a>
-				<a class="nav-link"style="color: #FFFFFF" id="nav-contact2-tab" data-toggle="tab" href="#nav-contact2" role="tab"
+				<a class="nav-link" id="nav-contact2-tab" data-toggle="tab" href="#nav-contact2" role="tab"
 					aria-controls="nav-contact2" aria-selected="false">合併</a>
 				<!-- <a class="nav-link" id="nav-contact3-tab" data-toggle="tab" href="#nav-contact3" role="tab"
 					aria-controls="nav-contact3" aria-selected="false">待開發:)</a> -->
 			</div>
 		</nav>
-		<div class="tab-content" id="nav-tabContent">
+		<div class="tab-content" style="background-color: #ffffff" id="nav-tabContent">
 			<!--高寬要弄class-->
 			<div class="tab-pane fade show active" id="nav-home" role="tabpanel" style="height: 85vh;width: 100%;"
 				aria-labelledby="nav-home-tab"><canvas id="imageSrc"></canvas>

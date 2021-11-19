@@ -5,12 +5,8 @@ let imgElement = document.getElementById("imageSrc");
 
 // -------------------------------------------------------------------- //
 
-imgElement.onload = function () {
-  main();
-};
-
 $('#button2').on('click',function() {
-main();
+	main();
 })
 
 // -------------------------------------------------------------------- //

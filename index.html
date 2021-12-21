@@ -75,7 +75,7 @@
 								style="margin-left:10px;">圖片加密</span></label>
 					</li>
 					<li>
-						<label download="canvas_love.png" class="my-3"> <i class="fas fa-download fa-lg"></i><span
+						<label  class="my-3"><input type="button" class="sr-only" id='button3'> <i class="fas fa-download fa-lg"></i><span
 							style="margin-left:10px;">下載</span> 
 						</label>
 					</li>
@@ -118,7 +118,6 @@
 				aria-labelledby="nav-contact3-tab"><canvas id="Share4ayer"></canvas></div> -->
 		</div>
 	</div>
-</body>
 <script>
 	$("#menu-toggle").click(function (e) {
 		e.preventDefault();
@@ -130,6 +129,13 @@
 		console.log("OpenCV.js is ready.");
 		$('#loading').hide();
 	}
+	$("#button3").click(function (e)  {
+		var canvas = document.getElementById("imageSrc");
+		var anchor = document.createElement("a");
+		anchor.href = canvas.toDataURL("image/png");
+		anchor.download = "IMAGE.PNG";
+		anchor.click();
+	});
 	var tooltip=document.getElementById('tool_list');
 	var clear=document.getElementById('button1');
 	$("#button4").on('click',function() {
@@ -139,5 +145,5 @@
 <script type="text/javascript" src="js/canvas_pixel.js"></script>
 <script async src="js/opencv.js" onload="onOpenCvReady();" type="text/javascript"></script>
 <script src="js/vc-draw.js"></script>
-
+</body>
 </html>

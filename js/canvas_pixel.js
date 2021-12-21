@@ -45,9 +45,7 @@
 //這動作是保證頁面顯示大小與螢幕大小相同不會爆框
   function resizeCanvases() {
 //用一個陣列去找叫imageSrc的ID，它下面所有子節點的canvas
-    [].forEach.call(document.querySelectorAll("#imageSrc"), function(
-      canvas
-    ) {
+    [].forEach.call(document.querySelectorAll("#imageSrc"), function(canvas){
       //找nav-home這DIV的寬跟高且設定這canvas和他們的寬高(有pidden不會跟DIV的寬高完全一樣)
       canvas.width = document.getElementById("nav-home").clientWidth;
       canvas.height = document.getElementById("nav-home").clientHeight;

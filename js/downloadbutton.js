@@ -2,9 +2,8 @@
 var downloadbutton = document.getElementById("downloadbutton");
 
 downloadbutton.addEventListener("click", function(){
-    if(checkEmpty()!=true){
+    if(checkEmpty(1)!=true){
     var canvas = document.getElementById('imageSrc');
-    console.log(123);
     var anchor = document.createElement('a');
     anchor.href = canvas.toDataURL("image/png");
     anchor.download = "imageSrc.png";
@@ -13,9 +12,8 @@ downloadbutton.addEventListener("click", function(){
 })
 
 downloadbutton.addEventListener("click", function(){
-    if(checkEmpty2()!=true){
+    if(checkEmpty(2)!=true){
     var canvas = document.getElementById('Share1Layer');
-    console.log(123);
     var anchor = document.createElement('a');
     anchor.href = canvas.toDataURL("image/png");
     anchor.download = "Share1Layer.png";
@@ -24,9 +22,8 @@ downloadbutton.addEventListener("click", function(){
 })
 
 downloadbutton.addEventListener("click", function(){
-    if(checkEmpty2()!=true){
+    if(checkEmpty(2)!=true){
     var canvas = document.getElementById('Share2Layer');
-    console.log(123);
     var anchor = document.createElement('a');
     anchor.href = canvas.toDataURL("image/png");
     anchor.download = "Share2Layer.png";
@@ -35,9 +32,8 @@ downloadbutton.addEventListener("click", function(){
 })
 
 downloadbutton.addEventListener("click", function(){
-    if(checkEmpty2()!=true){
+    if(checkEmpty(2)!=true){
     var canvas = document.getElementById('verificLayer');
-    console.log(123);
     var anchor = document.createElement('a');
     anchor.href = canvas.toDataURL("image/png");
     anchor.download = "verificLayer.png";
@@ -54,21 +50,25 @@ downloadbutton.addEventListener("click", function(){
 }
 //調用
 //表單非空驗證
-function checkEmpty() {
+function checkEmpty(x) {
     var check=document.getElementById("imageSrc"); // 獲取html的canvas對象，我這個id="imageSrc"
-    if(isCanvasBlank(check)){
-        return true;
-    }
-}
-
-function checkEmpty2() {
     var check2=document.getElementById("Share1Layer"); // 獲取html的canvas對象，我這個id="Share1Layer"
-    if(isCanvasBlank(check2)){
-        return true;
+
+    switch(x){
+    	case 1: if(isCanvasBlank(check)){
+        		return true;
+        		}
+        		break;
+        case 2: if(isCanvasBlank(check2)){
+        		return true;
+   				}
+   				break;
     }
 }
 
-// 作者：Rain_
-// 鏈接：https://juejin.cn/post/6844904067999727630
-// 來源：稀土掘金
-// 著作權歸作者所有。商業轉載請聯繫作者獲得授權，非商業轉載請註明出處。
+// function checkEmpty2() {
+//     var check2=document.getElementById("Share1Layer"); // 獲取html的canvas對象，我這個id="Share1Layer"
+//     if(isCanvasBlank(check2)){
+//         return true;
+//     }
+// }
